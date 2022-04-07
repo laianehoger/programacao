@@ -22,6 +22,8 @@ preenchidos-->
 					echo("numero $numero é <b>par</b>");
 				else
 					echo("numero $numero é <b>ímpar</b>");
+				} else {
+					echo ("insira um numero válido");
 			}
 		}
 	
