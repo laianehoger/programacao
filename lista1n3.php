@@ -9,7 +9,7 @@
     <form method="POST">
     Altura:<input type="number" name="alt" step="0.01"> <br>
         <select name="sexo">
-			<option value="h">Homem</option>
+		<option value="h">Homem</option>
             <option value="m">Mulher</option>
 		</select>
         <input type="submit" name="enviar" value="Enviar">
