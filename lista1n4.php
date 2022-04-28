@@ -7,7 +7,7 @@
 </head>
 <body>
     <form method="POST">
-        Peso:<input type="number" name="p"> <br>
+        Peso:<input type="number" name="p" step="0.01"> <br>
 		Altura:<input type="number" name="a" step="0.01"> <br>
         <input type="submit" name="enviar" value="Enviar">
 	</form>
@@ -29,7 +29,8 @@ if (isset($_POST['enviar'])){
     $altura = $_POST['a'];
     $peso = $_POST['p'];
     $imc = imc($peso, $altura);
-
+	$imc = number_format($imc, 1, '.', '');
+	
     if ($imc < 18.5){
         echo("Magreza, imc: $imc");
     }
