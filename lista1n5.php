@@ -7,9 +7,9 @@
 </head>
 <body>
     <form method="POST">
-        Dia:<input type="number" name="d"> <br>
-		Mês:<input type="number" name="m"> <br>
-		Ano:<input type="number" name="a"> <br>
+        Dia:<input type="number" name="dia"> <br>
+		Mês:<input type="number" name="mes"> <br>
+		Ano:<input type="number" name="ano"> <br>
         <input type="submit" name="enviar" value="Enviar">
 	</form>
 </body>
@@ -18,35 +18,40 @@
 
 <?php
 /**Faça um formulário que tenha três campos, para receber o dia , o mês e um ano (não usar o tipo
-date do HTML). Em seguida, faça a validação dos dados de entrada, não permitindo val ores
+date do HTML). Em seguida, faça a validação dos dados de entrada, não permitindo valores
 inválidos.
 a) Dica 1: usar uma função irá poupar linhas de códigos, pois as validações são parecidas;
 b) Dica 2: usar um array facilitará o processo de saber a quantidade de dias do mês.**/
 
-
-function data($d, $m, $a){
-	$dias = array("", 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
-	$meses = array("", "janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro");
-	echo("$d de $meses[$m] de $a");
+function vnumero($num, $max){
+	if ($num >= 1 && $num<=$max)
+		return true;
+	else
+		return false;
 }
-
 
 if (isset($_POST['enviar'])){
-	$dia = $_POST['d'];
-	$mes = $_POST['m'];
-	$ano = $_POST['a'];
-	$data = data($dia, $mes, $ano);
-	if (!empty($d) && !empty($m) && !empty($a)) {
-		if (is_numeric($d) && is_numeric($m) && is_numeric($a)){
-			
-
-
-		}
-		else {
-			echo ("Verifique os dados digitados. Apenas números são permitidos.");
-		}
-	}else {
-		echo("Por favor, verifique os valores digitados");
+	if (vnumero($_POST['mes'], 12)==true){
+		$mes = $_POST['mes'];
+	} else{
+		$mes = 1;
 	}
+	if (vnumero($_POST['ano'], 3000)==true){
+		$ano = $_POST['ano'];
+	} else{
+		$ano = 2000;
+	}
+	$dias = array("", 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+	echo("Mês $mes tem ". $dias[$mes]." dias");
+	echo("<br>");
+	
+	if (vnumero($_POST['dia'], $dias[$mes])==true)
+		$dia = $_POST['dia'];
+	else
+		$dia = 1;
+		
+	echo("$dia/$mes/$ano");
 }
 ?>
+
+
