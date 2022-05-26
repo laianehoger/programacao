@@ -3,91 +3,62 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Cadastro de usuário</title>
+	<title>Cadastro de usuários</title>
 </head>
 <body>
-	<div id="area">
-	<form method="POST" id="form">
+	<form method="POST" >
 		<fieldset>
-			Nome: <input type="text" name="nome" pattern="[a-z]*"required >
-			<br>
-			Data de nascimento: <input type="date" name="nascimento"required>
-			<br>
-			Endereço: <input type="text" name="numero"required>
-			<br>
-			Email: <input type="email" name="email"required>
-			<br>
-			Salário: <input type="text" name="salario"required>
-			<br>
-			Escolaridade: <input type="text" name="escolaridade"required>
-			<br>
-			Login: <input type="text" name="login"required>
-			<br>
-			Senha: <input type="password" name="senha"required>
+			<legend>Cadastro de usuários</legend>
+			Nome: <input type="text" name="nome"> <br>
+			Data de nascimento: <input type="date" name="nascimento"> <br>
+			Email: <input type="email" name="email"> <br>
+			Endereço: <input type="text" name="endereco"> <br>
+			Salario: <input type="text" name="salario"> <br>
+			Escolaridade: <input type="text" name="escolaridade"> <br>
+			Login: <input type="login" name="login"> <br>
+			Senha: <input type="password" name="senha"> <br>
 			<input type="submit" name="enviar" value="Enviar">
 		</fieldset>
 	</form>
-	</div>
-<style type="text/css">
-	body {
-	background-color: lightblue;
-	}
-	form{
-	position:center;
-	display:block;
-	}
-</style>
+	<?php
+	// isset testa se uma variavel existe
+	if (isset($_POST['enviar'])) {
+		if (empty($_POST["nome"])) {
+			echo ("Preencha o <b>nome</b>");
+		} else if (empty($_POST["nascimento"])){
+			echo("Preencha a data de <b>nascimento</b>");
+		} else if (empty($_POST["email"])) {
+			echo("Preencha o <b>email</b>");
+		} else if(empty($_POST["endereco"])){
+			echo("Preencha o <b>endereco</b>");
+		} else if(empty($_POST["salario"])){
+			echo("Preencha o <b>salario</b>");
+		} else if(empty($_POST["escolaridade"])){
+			echo("Preencha a <b>escolaridade</b>");
+		} else if(empty($_POST["login"])){
+			echo("Preencha o <b>login</b>");
+		} else if(empty($_POST["senha"])){
+			echo("Preencha a <b>senha</b>");
+		} 
+		
+		if(!is_numeric($_POST['salario'])){
+				echo("O <b>salário</b> deve ser numérico");
+			}
+	
+		else {
+
+			$nome = $_POST["nome"];
+			$nascimento = $_POST["nascimento"];
+			$email = $_POST["email"];
+			$salario = $_POST["salario"];
+			$escolaridade = $_POST["escolaridade"];
+			$login = $_POST["login"];
+			$senha = $_POST["senha"];
+
+			
+		}
+	} 
+	?>
 </body>
 </html>
 
-<?php
-if (isset($_POST['enviar'])){
-	if (empty($_POST["nome"])) {
-		echo ("Por favor preencha o campo <b>nome</b>");
-	} 
-	
-	else if (empty($_POST["nascimento"])){
-		echo("Preencha a data de <b>Nascimento</b>");
-	} 
-	
-	else if (empty($_POST["endereco"])) {
-		echo("Preencha o <b>Endereço</b>");
-	} 
-	
-	else if(empty($_POST["email"])){
-		echo("Preencha o <b>Email</b>");
-	} 
-	
-	else if(empty($_POST["salario"])){
-		echo("Preencha o <b>Salario</b>");
-	} 
-	
-	else if(empty($_POST["escolaridade"])){
-		echo("Preencha o <b>Escolaridade</b>");
-	} 
-	
-	else if(empty($_POST["login"])){
-		echo("Preencha o <b>Login</b>");
-	} 
-	
-	else if(empty($_POST["senha"])){
-		echo("Preencha o <b>Senha</b>");
-	} 
-	
-	else {
-	//tudo preenchido
-	$nome = $_POST["nome"];
-	$nascimento = $_POST["nascimento"];
-	$endereco = $_POST["endereço"];
-	$email = $_POST["email"];
-	$salario = $_POST["salario"];
-	$escolaridade = $_POST["escolaridade"];
-	$login = $_POST["login"];
-	$senha = $_POST ["senha"];
-	}
-    if(!is_numeric("$salario")){
-            echo("salário inválido. insira um número");
-        }
-	}
-
-?>
