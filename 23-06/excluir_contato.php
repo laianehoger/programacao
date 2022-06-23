@@ -6,8 +6,12 @@
 	if($conn){
 		$sql = "DELETE FROM contatos WHERE id = $id_contato";
 		if(mysqli_query($conn, $sql)){
-			echo("contato excluido");
-
+			echo ("
+				<script>
+					alert('Contato excluido com sucesso');
+					location.href = 'mostrar_agenda.php';
+				</script>
+			");
 		}else{
 			echo("erro");
 		}
