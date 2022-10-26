@@ -1,0 +1,123 @@
+body{
+	font-size:  19px;
+	/*font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;  adicionei */
+}
+.btn {
+	color:  white;
+	padding: 10px;
+	font-size: 15px;
+	border-radius:  5px;
+	text-decoration: none;
+	border: none;
+}
+.edit_btn{
+	background: #4e3a20;
+}
+.del_btn{
+	background: #ff0000;
+}
+.btn_primary{
+	background: #5f9d9f;
+}
+
+table {
+	border-collapse: collapse;
+	width:  100%;	;
+}
+th {
+	height: 30px;
+	background-color: #904caf;
+	color: white;
+}
+
+th, td {
+	padding:  15px;
+	text-align:  left;
+	border-bottom:  1px solid #ddd;
+}
+
+tr:hover {
+	background-color: #f5f5f5;
+}
+
+tr:nth-child(even){
+	background-color: #f2f2f2;
+}
+
+form {
+	width: 320px;
+	margin:  50px auto;
+	text-align: left;
+	padding: 20px;
+}
+
+fieldset {
+	border:  1px solid #bbb;
+	border-radius: 5px;
+}
+
+/* texto */ 
+.input-group{
+	margin:  10px 0px 10px 0px;
+}
+.input-group label{
+	text-align: left;
+	margin:  3px;
+	display: block;
+}
+
+.input-group input{
+	height: 30px;
+	width: 93%;
+	padding: 5px 10px;
+	font-size:  16px;
+	border-radius: 5px;
+	border:  1px solid #bbb;
+}
+
+.input-group select {
+	height: 30px;
+	width: 100%;
+	padding: 5px 10px;
+	font-size: 16px;
+	border-radius:  5px;
+	border:  1px solid #bbb;
+	background: white;
+}
+
+#conteudo{
+	width: 80%;
+	margin: 0 auto;
+	transition: 0.3s;
+}
+
+h1 {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.msg {
+	margin: 30px auto;
+	padding:  10px;
+	border-radius: 5px;
+	width: 100%;
+	text-align: center;
+}
+
+.sucesso{
+	color: #76004d;
+	background: #dff0d8;
+	border:  1px solid #820c4d;
+}
+
+@media (max-width: 999px){
+	#conteudo {
+		width: 94%;
+		margin: 0 auto;
+		transition: 0.3s;
+	}
+
+	.dados {
+		overflow-x: auto;
+	}
+}
